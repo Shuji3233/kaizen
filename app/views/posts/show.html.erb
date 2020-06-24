@@ -3,10 +3,12 @@
 <p><span>必要経費:</span><%= @post.cost %></p>
 <p><span>改善効果:</span><%= @post.benefits %></p>
 
-<% if @post.user_id == current_user.id %>
-  <%= link_to "戻る", root_path %>
-  <%= link_to "編集", edit_post_path %>
-  <%= link_to "削除", post_path(@post), method: :delete, data: {confirm:"本当に削除してもよろしいですか？"} %>
+<%= if user_sign_in? %>
+  <% if @post.user_id == current_user.id %>
+    <%= link_to "戻る", root_path %>
+    <%= link_to "編集", edit_post_path %>
+    <%= link_to "削除", post_path(@post), method: :delete, data: {confirm:"本当に削除してもよろしいですか？"} %>
+  <% end %>
 <% end %>
 
   <p class="body">

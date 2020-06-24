@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.build
-    @category = Category.all.map{ |c| |c.name, c.id|}
+    @categories = Category.all.map{ |c| [c.name, c.id]}
   end
   
   def create
@@ -25,10 +25,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @category = Category.all.map{ |c| |c.name, c.id|}
+    @categories = Category.all.map{ |c| [c.name, c.id]}
   end
   
   def update
+    @post.category.id = params[:category_id]
     if @post.update(post_params)
       redirect_to post_path
     else
