@@ -11,10 +11,12 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.build
+    @category = Category.all.map{ |c| |c.name, c.id|}
   end
   
   def create
     @post = current_user.posts.build(post_params)
+    @post.category.id = params[:category_id]
     if @post.save
       redirect_to root_path
     else
@@ -23,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    
+    @category = Category.all.map{ |c| |c.name, c.id|}
   end
   
   def update
@@ -48,7 +50,7 @@ end
 
 
   def post_params
-    params.require(:post).permit(:title, :body, :cost, :benefits)
+    params.require(:post).permit(:title, :body, :cost, :benefits, :category_id)
   end
   
 end
