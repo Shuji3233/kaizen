@@ -2,7 +2,13 @@ class PostsController < ApplicationController
   before_action :find_posts, only: [:edit, :update, :show, :destroy]
   
   def index
-    @post = Post.all.order('created_at DESC')
+    if params[:category].blank?
+      @post = Post.all.order('created_at DESC')
+    else
+      category_id = Category.find_by(name:params[:category]).id
+      @post = Post.where(:category_id => @category_id).order('created_at DESC')
+    end
+    
   end
 
   def show
@@ -16,7 +22,7 @@ class PostsController < ApplicationController
   
   def create
     @post = current_user.posts.build(post_params)
-    @post.category.id = params[:category_id]
+    @post.category_id = params[:category_id]
     if @post.save
       redirect_to root_path
     else

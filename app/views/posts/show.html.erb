@@ -3,7 +3,7 @@
 <p><span>必要経費:</span><%= @post.cost %></p>
 <p><span>改善効果:</span><%= @post.benefits %></p>
 
-<%= if user_sign_in? %>
+<% if user_signed_in? %>
   <% if @post.user_id == current_user.id %>
     <%= link_to "戻る", root_path %>
     <%= link_to "編集", edit_post_path %>

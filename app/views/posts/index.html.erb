@@ -1,3 +1,9 @@
-<% @post.each do  |play|%>
-	<h2><%= link_to play.title, post_path(play) %></h2>
+<h1><%= params[:category] %></h1>
+
+<% if @post.count == 0 %>
+	<h3>改善提案はありません</h3>
+<% else %>
+	<% @post.each do  |play|%>
+		<h2><%= link_to play.title, post_path(play) %></h2>
+	<% end %>
 <% end %>
