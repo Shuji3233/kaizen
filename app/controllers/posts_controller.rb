@@ -57,7 +57,7 @@ end
 
 
   def post_params
-    params.require(:post).permit(:title, :body, :cost, :benefits, :category_id)
+    params.require(:post).permit(:title, :body, :cost, :benefits, :category_id, :post_img)
   end
   
 end

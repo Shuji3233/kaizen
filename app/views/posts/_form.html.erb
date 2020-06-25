@@ -1,5 +1,6 @@
 <%= simple_form_for @post do |f| %>
 	<%= select_tag(:category_id, options_for_select(@categories), :prompt => "部門選択") %>
+	<%= f.file_field :post_img %>
 	<%= f.input :title, label: "題名" %>
 	<%= f.input :body, label: "改善内容" %>
 	<%= f.input :cost, label: "必要経費" %>

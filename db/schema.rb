@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_24_111730) do
+ActiveRecord::Schema.define(version: 2020_06_25_103756) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,10 @@ ActiveRecord::Schema.define(version: 2020_06_24_111730) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "category_id"
+    t.string "post_img_file_name"
+    t.string "post_img_content_type"
+    t.bigint "post_img_file_size"
+    t.datetime "post_img_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
