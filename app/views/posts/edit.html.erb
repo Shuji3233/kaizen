@@ -1,3 +1,11 @@
 <h1>改善提案の編集</h1>
 
-<%= render 'form' %>
+<%= simple_form_for @post do |f| %>
+	<%= f.select :category_id, @categories %>
+	<%= f.file_field :post_img %>
+	<%= f.input :title, label: "題名" %>
+	<%= f.input :body, label: "改善内容" %>
+	<%= f.input :cost, label: "必要経費" %>
+	<%= f.input :benefits, label: "改善効果" %>
+    <%= f.button :submit %>
+<% end %>

@@ -2,19 +2,22 @@
   <div class="col-md-4">
     <%= image_tag @post.post_img.url(:post_show), class: "post-show" %>
   </div>
-  <div class="colmd-8">
-    <h3><span>題名:</span><%= @post.title %></h3>
-    <h3><span>改善内容:</span><%= @post.body %></h3>
-    <p><span>必要経費:</span><%= @post.cost %></p>
-    <p><span>改善効果:</span><%= @post.benefits %></p>
+  <div class="col-md-8">
+    <div class="post-info">
+      <h3 class="post-title"><span>題名:</span><%= @post.title %></h3>
+      <h3 class="post-body"><span>改善内容:</span><%= @post.body %></h3>
+      <p class="post-cost"><span>必要経費:</span><%= @post.cost %></p>
+      <p class="post-benefits"><span>改善効果:</span><%= @post.benefits %></p>
+    </div>
   </div>
 </div>
 
+<div class="button"></div>
 <% if user_signed_in? %>
   <% if @post.user_id == current_user.id %>
-    <%= link_to "戻る", root_path %>
-    <%= link_to "編集", edit_post_path %>
-    <%= link_to "削除", post_path(@post), method: :delete, data: {confirm:"本当に削除してもよろしいですか？"} %>
+    <%= link_to "戻る", root_path, class: "btn btn-custom" %>
+    <%= link_to "編集", edit_post_path, class: "btn btn-custom" %>
+    <%= link_to "削除", post_path(@post), method: :delete, data: {confirm:"本当に削除してもよろしいですか？"}, class: "btn btn-custom" %>
   <% end %>
 <% end %>
 

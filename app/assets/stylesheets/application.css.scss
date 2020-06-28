@@ -15,5 +15,123 @@
  */
 
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import url(https://fonts.googleapis.com/css?family=Lato);
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@mixin background-tile {
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 4px #ccc;
+  padding: 0.6em 0.6em;
+}
+
+body {
+  background: white;
+}
+p.alert,
+p.notice {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lato", sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#title {
+  text-align: center;
+  width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 10px;
+}
+
+.post {
+  height: 350px;
+  width: 250px;
+  @include background-tile;
+}
+.navbar-light {
+  background-color: rgb(174, 240, 223);
+  padding-bottom: 5px;
+  padding-top: 5px;
+
+  .navbar-nav > li > a {
+    color: #222;
+    &:hover {
+      color: darken(#bdbdbd, 5%);
+      transition: 0.5s;
+    }
+  }
+  .navbar-header {
+    .navbar-brand {
+      color: #ec1010;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      font-size: 2.3em;
+      font-weight: bold;
+    }
+  }
+  .dropdown-menu > li > a:hover {
+    background-color: darken(#bdbdbd, 5%);
+    color: #fff;
+  }
+}
+
+.btn-custom {
+  color: black;
+  background-color: #fff;
+  border: 1px solid black;
+  padding: 8px 20px;
+  border-radius: 3px;
+  font-family: "Lato", sans-serif;
+  &:hover {
+    text-decoration: none;
+    background-color: darken(#bdbdbd, 5%);
+    color: #fff;
+    transition: 0.5s;
+  }
+}
+
+.post-info {
+  @include background-tile;
+  .post-title {
+    margin-top: 0;
+    font-weight: bold;
+    word-break: break-all;
+    text-indent: -2.3em;
+    padding-left: 3.1em;
+  }
+
+  .post-body {
+    font-size: 1.3em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    word-break: break-all;
+    text-indent: -4.3em;
+    padding-left: 4.3em;
+  }
+}
+
+.post-show {
+  height: 475px;
+  width: 325px;
+  @include background-tile;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}

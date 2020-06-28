@@ -1,15 +1,15 @@
 <h1><%= params[:category] %></h1>
-<div>
-	<% if @post.count == 0 %>
+	<% if @posts.count == 0 %>
 		<h3>改善提案はありません</h3>
 	<% else %>
-		<% @post.each do  |post|%>
+	<div>
+		<% @posts.each do  |post|%>
 			<div class="col-md-3">
 				<a href="/posts/ <%= post.id %>%">
-					<%= image_tag post.post_img.url(:post_index) %>
+					<%= image_tag post.post_img.url(:post_index), class: "post" %>
 				</a>
-				<h2><%= link_to post.title, post_path(post) %></h2>
+				<p id="title"><%= link_to post.title, post_path(post) %></p>
 			</div>
 		<% end %>
+		</div>
 	<% end %>
-</div>
