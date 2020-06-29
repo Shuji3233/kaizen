@@ -25,4 +25,6 @@ test:
 
 production:
   <<: *default
-  database: kaizen
+  database: kaizen_production
+  username: kaizen
+  password: <%= ENV['SUTEAPP_DATABASE_PASSWORD'] %>
